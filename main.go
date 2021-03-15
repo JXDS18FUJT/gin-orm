@@ -47,6 +47,8 @@ func main() {
 	// 	c.HTML(http.StatusOK, "index.html", gin.H{})
 	// })
 	// Listen and Server in 0.0.0.0:8080
-	r.Run(":8001")
+	if err := r.Run(fmt.Sprintf(":%d", setting.Conf.Port)); err != nil {
+		fmt.Printf("server startup failed, err:%v\n", err)
+	}
 
 }

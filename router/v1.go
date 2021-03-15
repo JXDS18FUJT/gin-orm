@@ -14,6 +14,7 @@ func V1Router(Router *gin.RouterGroup) {
 		v1Group.POST("/todo", controller.CreateV1Todo)
 		// 查看所有的待办事项
 		v1Group.GET("/todo", controller.CreateV1Todo)
+		v1Group.GET("/bda", controller.V1bda)
 		// 修改某一个待办事项
 		//v1Group.PUT("/todo/:id", controller.UpdateATodo)
 		// 删除某一个待办事项
