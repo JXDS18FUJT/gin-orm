@@ -15,7 +15,6 @@ type Classmate struct {
 func CreateClassmate(classmate *Classmate) (err error) {
 	err = dao.DB.Create(&classmate).Error
 	return
-
 }
 
 func UpdateClassmate(classmate *Classmate) (err error) {

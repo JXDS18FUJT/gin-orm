@@ -23,6 +23,7 @@ func InitRouter() *gin.Engine {
 		router.V1Router(PublicGroup)        // v1基础路由
 		router.ClassmateRouter(PublicGroup) // v1基础路由
 		router.UploadRouter(PublicGroup)
+		router.BaiduRouter(PublicGroup)
 
 	}
 
