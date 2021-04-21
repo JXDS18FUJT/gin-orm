@@ -8,6 +8,8 @@ import (
 	"net/url"
 	"os"
 
+	"orm.com/m/v2/setting"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -20,6 +22,7 @@ type webimageRes struct {
 	Words_result_num int    `json:"words_result_num"`
 	Words_result     []Word `json:"words_result"`
 }
+
 func BaiduWebimage(c *gin.Context) {
 	var __dirname = "E:\\gin\\gin-orm\\txt\\"
 	// var accessToken = "24.2f5612a038f5c41bf4b370fceca502fc.2592000.1618729517.282335-23829922"
@@ -28,7 +31,7 @@ func BaiduWebimage(c *gin.Context) {
 	data["image"] = []string{uploadImagetoBase64}
 	data["detect_direction"] = []string{"true"}
 	//把post表单发送给目标服务器
-	resp, err := http.PostForm("https://aip.baidubce.com/rest/2.0/ocr/v1/webimage?access_token=24.63b996af3629d9380f346fb432d7ba79.2592000.1621492446.282335-23829922", data)
+	resp, err := http.PostForm("https://aip.baidubce.com/rest/2.0/ocr/v1/webimage?access_token="+setting.Conf.BaiduConfig.AccessToken, data)
 	if err != nil {
 		fmt.Println(err.Error())
 		c.JSON(http.StatusOK, gin.H{

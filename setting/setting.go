@@ -11,6 +11,12 @@ type AppConfig struct {
 	Release      bool `ini:"release"`
 	Port         int  `ini:"port"`
 	*MySQLConfig `ini:"mysql"`
+	*BaiduConfig `ini:"baidu"`
+}
+
+//百度ocr的配置
+type BaiduConfig struct {
+	AccessToken string `ini:"accessToken"`
 }
 
 // MySQLConfig 数据库配置
