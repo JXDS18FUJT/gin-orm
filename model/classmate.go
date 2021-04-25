@@ -31,7 +31,7 @@ func GetClassmate(id string) (classmate *Classmate, err error) {
 	if err = dao.DB.Debug().Where("id=?", id).First(classmate).Error; err != nil {
 		return nil, err
 	}
-	return
+	return classmate, nil
 }
 func GetAllClassmate() (classmateList []*Classmate, err error) {
 	if err = dao.DB.Find(&classmateList).Error; err != nil {
